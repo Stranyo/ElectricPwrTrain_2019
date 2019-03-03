@@ -1,8 +1,8 @@
 U1=400; %voltage in [v]
-Xl1=5; %primer reactance in Ohm
-Xl2=6; %secunder reactance in Ohm
-R1=20; %primer resistance in Ohm
-R2=21; %secunder resistance in Ohm
+Xl1=0.203; %primer reactance in Ohm
+Xl2=0.203; %secunder reactance in Ohm
+R1=0.0609; %primer resistance in Ohm
+R2=0.0609; %secunder resistance in Ohm
 n_n= 2982; % nominal rotation speed [RPM]
 p=2; %number of poles
 f=50; %input voltage frequency [Hz]
@@ -14,3 +14,4 @@ M_n= 352; %nominal Torque [Nm]
 J= 1.2; %moment of inertia [1/4*GD^2/kg^2]
 pf=0.86; %power factor [%]
 sampletime=10^(-3);
+z=2.0305;
