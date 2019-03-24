@@ -1,16 +1,28 @@
-v=400; %voltage in [v]
-Xl1=5; %primer reactance in Ohm
-Xl2=6; %secunder reactance in Ohm
-R1=20; %primer resistance in Ohm
-R2=21; %secunder resistance in Ohm
-n_n= 2982; % nominal rotation speed [RPM]
+Un=400; %nominal voltage in [v]
+cosfi=0.85; %power factor [%]
+In=197*(cosfi-1i*sin(acos(cosfi))); %nominal current in [A]
+In_abs=abs(In);
+
+Pn=110000; %nominal power in [W]
 p=2; %number of poles
-f=50; %input voltage frequency [Hz]
-n_s=(60*f)/p; %synchronous rotation speed [RPM]
-s=((n_s)-(n_n))/(n_s); %slip in [%]
-Rs=(1-s)/s; %slip dependent resistance in Ohm
-I_n= 197; %nominal current [A]
-M_n= 352; %nominal Torque [Nm]
-J= 1.2; %moment of inertia [1/4*GD^2/kg^2]
-pf=0.86; %power factor [%]
+nn= 2983; % nominal rotation speed [RPM]
+Z=Un/In; %impedance in [ohm]
+
+U=400; %input voltage in [V]
+f=50; %input frequency in [Hz]
+omega=2*pi*f;
+ns=(60*f)/(p/2); %synchronous rotation speed [RPM]
+%s=((ns)-(nn))/(ns); %slip in [%]
+s=0.0056;
+
+R1=0.03083; %in [ohm]
+R2=R1;
+Rm=R2*((1-s)/s);
+
 sampletime=10^(-3);
+
+Im=In_abs*1i*sin(acos(cosfi));
+Im_abs=abs(Im);
+Xm=Un/Im;
+I2=In+Im;
+I2_abs=abs(I2);
