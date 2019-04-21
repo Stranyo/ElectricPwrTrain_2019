@@ -2,12 +2,12 @@ function [n omega R2 X2 Zn I1_abs I1 Im I2_abs I2 Xm Pmech M Rm] = faszakiraly(U
 cosfi=0.85
 p=2
 
-Lm=0.0080335
+Lm=0.0070547
 Xm=Lm*2*pi*f
 L2=0.0002406
 R2=0.0072
 X2=L2*2*pi*f
-Zn=abs(R2+(1i*X2)+((1/(1i*Xm))+(1/(R2+(1i*X2)+(R2*((1-s)/s)))))^(-1))
+Zn=U/197
 
 I1_abs=U/Zn;
 I1=I1_abs*(cosfi-(1i*sin(acos(cosfi))))
