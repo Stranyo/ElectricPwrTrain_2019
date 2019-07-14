@@ -1,0 +1,3 @@
+function [Id Iq]=optimal_fw(M,omega)
+Lm=0.0070547
+
