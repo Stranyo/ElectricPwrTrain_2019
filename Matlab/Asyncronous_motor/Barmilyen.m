@@ -1,4 +1,4 @@
-function [Pmech M omega] = Barmilyen(Un,In_abs,fn,nn,cosfin,Is,p,U,f,s)
+function [Pmech M omega_mech Lm R2 L2 sb Mb szigma] = Barmilyen(Un,In_abs,fn,nn,cosfin,Is,p,U,f,s)
 In=In_abs*(cosfin-1i*(sin(acos(cosfin))))
 n_sync=(60*fn)/p
 sn=(n_sync-nn)/n_sync
@@ -33,5 +33,9 @@ Im=U2/(1i*Xm)
 I2=I1-Im
 Pmech=3*((real(I2))^2)*Rm
 n=((60*f)/(p))*(1-s)
-omega=(n/60)*2*pi
-M=Pmech/omega
+omega_mech=(n/60)*2*pi
+M=Pmech/omega_mech
+sb=(R2)/(sqrt((R2^2)+(X2^2)))
+szigma=X2/(abs(Xm))
+omega=2*pi*f
+Mb=(3/2)*(p/omega)*((U^2)/((1+szigma)^2))*(1/(2*(R2+(sqrt((R2^2)+(X2^2))))))
